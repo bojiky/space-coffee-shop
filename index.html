@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>BOJIKK's Coffee | Космическая кофейня</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="stars" id="stars"></div>
+    <div class="twinkling"></div>
+
+    <header class="header">
+        <div class="container header-inner">
+            <div class="logo" onclick="resetFilter()">BOJIKK's ☕</div>
+            <nav class="nav">
+                <button class="nav-btn active" data-filter="all" onclick="filterProducts('all')">Все напитки</button>
+                <button class="nav-btn" data-filter="coffee" onclick="filterProducts('coffee')">Кофе</button>
+                <button class="nav-btn" data-filter="special" onclick="filterProducts('special')">Космические</button>
+                <button class="nav-btn" data-filter="dessert" onclick="filterProducts('dessert')">Десерты</button>
+            </nav>
+            <button class="cart-btn" onclick="openCart()">
+                🛸 <span id="cart-count">0</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Кофе, который <span class="gradient-text">взрывает</span> вкус</h1>
+                    <p>Обжарка на орбите, доставка через червоточины. Попробуйте напитки из другой галактики.</p>
+                    <button class="btn-primary" onclick="document.getElementById('products-section').scrollIntoView({behavior: 'smooth'})">Смотреть меню →</button>
+                </div>
+                <div class="hero-image">
+                    <div class="floating-cup">
+                        <div class="cup-glow"></div>
+                        ☕
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="products" id="products-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🌙 Навигационное меню</h2>
+                    <div class="filter-badge" id="filter-badge">Все напитки</div>
+                </div>
+                <div class="card-grid" id="products-grid">
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div class="container features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Экспресс-доставка</h3>
+                    <p>За 15 минут через пространственно-временной туннель</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌌</div>
+                    <h3>Звёздная обжарка</h3>
+                    <p>Зерна, выращенные в невесомости</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛸</div>
+                    <h3>Космический кэшбэк</h3>
+                    <p>10% звездной пылью на счёт</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container cta-content">
+                <h2>Стань частью экипажа</h2>
+                <p>Подпишись на космическую рассылку и получи скидку 15% на первый заказ</p>
+                <div class="form-group">
+                    <input type="email" placeholder="Твой email" id="emailInput">
+                    <button class="btn-cta" onclick="subscribe()">Отправить 🚀</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 BOJIKK's Coffee - Кофе из другой галактики.</p>
+        </div>
+    </footer>
+
+    <div class="cart-modal" id="cart-modal">
+        <div class="cart-modal-content glass">
+            <div class="cart-modal-header">
+                <h2>🛸 Твоя корзина</h2>
+                <button class="cart-close" onclick="closeCart()">✕</button>
+            </div>
+            <div class="cart-modal-body" id="cart-items">
+                <div class="empty-cart">✨ Корзина пуста. Выбери напиток ✨</div>
+            </div>
+            <div class="cart-modal-footer">
+                <div class="cart-total">
+                    <span>Итого:</span>
+                    <span class="cart-total-price" id="cart-total">0 ₽</span>
+                </div>
+                <button class="btn-checkout" onclick="checkout()">Оформить заказ</button>
+                <button class="btn-clear-cart" onclick="clearCart()">Очистить корзину</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
